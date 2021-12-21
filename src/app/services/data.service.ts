@@ -25,40 +25,40 @@ export class DataService {
 
 
   // -------------------------------- Appartement ---------------------------------------- //
-  private appartement = 'https://fathallahapi.herokuapp.com/api/appartement';
-  private appartementnb = 'https://fathallahapi.herokuapp.com/api/countappartement';
+  private appartement = 'https://mtfback.herokuapp.com/api/appartement';
+  private appartementnb = 'https://mtfback.herokuapp.com/api/countappartement';
 
 
   // -------------------------------- Projet -------------------------------------------- //
-  private projet = 'https://fathallahapi.herokuapp.com/api/projet';
-  private projetnb = 'https://fathallahapi.herokuapp.com/api/countproject';
-  private nombreencours = 'https://fathallahapi.herokuapp.com/api/countsencours';
+  private projet = 'https://mtfback.herokuapp.com/api/projet';
+  private projetnb = 'https://mtfback.herokuapp.com/api/countproject';
+  private nombreencours = 'https://mtfback.herokuapp.com/api/countsencours';
 
 
   // -------------------------------- Contact -------------------------------------------- //
-  private contact = 'https://fathallahapi.herokuapp.com/api/contact';
+  private contact = 'https://mtfback.herokuapp.com/api/contact';
 
 
   // -------------------------------- DevenezProprietaire -------------------------------- //
-  private devenezProprietaire = 'https://fathallahapi.herokuapp.com/api/devenezProprietaire';
+  private devenezProprietaire = 'https://mtfback.herokuapp.com/api/devenezProprietaire';
 
 
   // -------------------------------- Message -------------------------------------------- //
-  private message = 'https://fathallahapi.herokuapp.com/api/message';
-  private messagenb = 'https://fathallahapi.herokuapp.com/api/countmessage';
+  private message = 'https://mtfback.herokuapp.com/api/message';
+  private messagenb = 'https://mtfback.herokuapp.com/api/countmessage';
 
 
   // -------------------------------- Presentation --------------------------------------- //
-  private presentation = 'https://fathallahapi.herokuapp.com/api/presentation';
+  private presentation = 'https://mtfback.herokuapp.com/api/presentation';
 
 
   // -------------------------------- Video ---------------------------------------------- //
-  private video = 'https://fathallahapi.herokuapp.com/api/video';
-  private videonb = 'https://fathallahapi.herokuapp.com/api/countvideo';
+  private video = 'https://mtfback.herokuapp.com/api/video';
+  private videonb = 'https://mtfback.herokuapp.com/api/countvideo';
 
 
   // -------------------------------- Actualites --------------------------------------- //
-  private actualite = 'https://fathallahapi.herokuapp.com/api/actualite';
+  private actualite = 'https://mtfback.herokuapp.com/api/actualite';
 
 
 
@@ -98,7 +98,7 @@ export class DataService {
   deleteProjet(id: number): Observable<any> { return this.http.delete(`${this.projet}/${id}`); }
 
   getnumberofencours(): Observable<number>{return this.http.get<number>(`${this.nombreencours}`);}
-  
+
   countProjet(): Observable<number> {return this.http.get<number>(`${this.projetnb}`);}
 
   // ---------------- Contact ------------------- //
@@ -175,7 +175,7 @@ export class DataService {
    getActualiteList(): Observable<any> { return this.http.get(this.actualite); }
 
    getActualite(id: number): Observable<any> { return this.http.get(`${this.actualite}/${id}`); }
- 
+
    createActualite(actualite: Object): Observable<Object> { return this.http.post(`${this.actualite}`, actualite); }
 
    deleteActualite(id: number): Observable<any> { return this.http.delete(`${this.actualite}/${id}`); }

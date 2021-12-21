@@ -3,18 +3,18 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginRequest } from '../interfaces/loginRequest';
 
-const API_URL = 'https://fathallahapi.herokuapp.com/api/';
+const API_URL = 'https://mtfback.herokuapp.com/api/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  private users = 'https://fathallahapi.herokuapp.com/api/users';
+  private users = 'https://mtfback.herokuapp.com/api/users';
 
-  private usersbyrole = 'https://fathallahapi.herokuapp.com/api/userbyRoleid';
+  private usersbyrole = 'https://mtfback.herokuapp.com/api/userbyRoleid';
 
-  private changerpassword = 'https://fathallahapi.herokuapp.com/api/auth/changepassword';
+  private changerpassword = 'https://mtfback.herokuapp.com/api/auth/changepassword';
 
 
   constructor(private http: HttpClient) { }
