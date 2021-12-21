@@ -1,0 +1,55 @@
+.center {
+  position: relative;
+  left: 50%;
+}
+
+.swal2-container.swal2-backdrop-show,
+.swal2-container.swal2-noanimation {
+  background: none;
+}
+
+.files-lists {
+  display: flex;
+  justify-content: space-between;
+  /* width: 32%; */
+
+  background: #ffffff;
+  border: 1px dashed;
+  border-radius: 12px;
+  padding: 5px;
+  color: #86888a;
+}
+
+.files-lists .delete-file {
+  background: transparent;
+  border: none;
+}
+
+.files-lists .delete-file img {
+  width: 30px;
+}
+
+.uploadimg {
+  cursor: pointer;
+  /* Style as you please, it will become the visible UI component. */
+}
+
+#upload-photo {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+#upload-photos {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.uploadimg {
+  margin-left: 73px;
+  font-weight: 700;
+  background-color: #d6d6d6;
+  border-radius: 5px;
+  margin-top: 10px;
+}

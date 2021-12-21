@@ -1,0 +1,79 @@
+<div class="col-md-12">
+    <div class="card">
+
+        <div class="h-tab">
+
+
+
+
+
+            <div class="tab-content">
+
+                <div class="card-body titre">
+                    <h5>Tous les projets</h5>
+                </div>
+
+                <div class="card-body reset-table p-t-0 tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th>Photo couverture</th>
+                                    <th>Nom</th>
+                                    <th>Gouvernorat</th>
+                                    <th>Localite</th>
+                                    <th>Surface</th>
+                                    <th> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Etat</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let projet of projet | async ">
+                                <tr>
+                                    <td>
+                                        <a><img class="img-responsive" src="{{ projet.image_de_couverture }}" /></a>
+                                    </td>
+                                    <td>{{ projet.nom }}</td>
+                                    <td>{{ projet.gouvernorat }}</td>
+                                    <td>{{ projet.localite }}</td>
+                                    <td>{{ projet.surface }}</td>
+                                    <td>
+                                        <button *ngIf="projet.etat == 'fini'" type="button"
+                                            class="btn btn-success btn-round">&nbsp;
+                                            &nbsp;
+                                            Finis &nbsp; &nbsp;</button>
+                                        <button *ngIf="projet.etat == 'en_cours'" type="button"
+                                            class="btn btn-warning btn-round">En cours</button>
+                                    </td>
+                                    <td>
+                                        <button (click)="projetUpdate(projet.id)" type="button"
+                                            class="btn btn-primary btn-round btn-outline-primary">
+                                            Modifier
+                                        </button>
+
+                                        &nbsp; &nbsp;
+
+                                        <button (click)="projetDelete(projet.id)" type="button"
+                                            class="btn btn-danger btn-round btn-outline-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,351 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card>
+
+            <h4 class="sub-title">Modifier un projet</h4>
+
+            <form name="form" novalidate #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Nom</label>
+                            <div class="col-sm-4">
+                                <input name="nom" #nom="ngModel" required [(ngModel)]="projet.nom" type="text"
+                                    class="form-control">
+
+                                <div class="alert alert-danger" *ngIf="f.submitted && nom.invalid">
+                                    <span *ngIf="nom.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+
+                            <label class="col-sm-2 col-form-label">Gouvernorat</label>
+                            <div class="col-sm-4">
+                                <input name="gouvernorat" #gouvernorat="ngModel" required
+                                    [(ngModel)]="projet.gouvernorat" type="text" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && gouvernorat.invalid">
+                                    <span *ngIf="gouvernorat.errors.required">required</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Localite</label>
+                            <div class="col-sm-4">
+                                <input required name="localite" #localite="ngModel" [(ngModel)]="projet.localite"
+                                    type="text" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && localite.invalid">
+                                    <span *ngIf="localite.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+                            <label class="col-sm-2 col-form-label">Surface</label>
+                            <div class="col-sm-4">
+                                <input required name="surface" #surface="ngModel" [(ngModel)]="projet.surface"
+                                    type="number" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && surface.invalid">
+                                    <span *ngIf="surface.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-4">
+                                <textarea name="description" #description="ngModel" required
+                                    [(ngModel)]="projet.description" rows="5" cols="5" class="form-control"
+                                    placeholder="Description"></textarea>
+                                <div class="alert alert-danger" *ngIf="f.submitted && description.invalid">
+                                    <span *ngIf="description.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+                            <label class="col-sm-2 col-form-label">Situation Url</label>
+                            <div class="col-sm-4">
+                                <input required name="situation_url" #situation_url="ngModel"
+                                    [(ngModel)]="projet.situation_url" type="text" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && situation_url.invalid">
+                                    <span *ngIf="situation_url.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+                            <label class="col-sm-2 col-form-label">Résidence gardée </label>
+                            <div class="col-sm-4">
+                                <input name="residence_gardee" #residence_gardee="ngModel"
+                                    [checked]="projet.residence_gardee" [(ngModel)]="projet.residence_gardee"
+                                    type="checkbox" class="form-control checkb">
+                            </div>
+
+                            <label class="col-sm-2 col-form-label">Double vitrage</label>
+                            <div class="col-sm-4">
+                                <input name="double_vitrage" #double_vitrage="ngModel"
+                                    [(ngModel)]="projet.double_vitrage" type="checkbox" class="form-control checkb">
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+                            <label class="col-sm-2 col-form-label">Michelaire electrique</label>
+                            <div class="col-sm-4">
+                                <input name="michelaire_electrique" #michelaire_electrique="ngModel"
+                                    [checked]="projet.michelaire_electrique" [(ngModel)]="projet.michelaire_electrique"
+                                    type="checkbox" class="form-control checkb">
+                            </div>
+
+                            <label class="col-sm-2 col-form-label">Chauffage central</label>
+                            <div class="col-sm-4">
+                                <input [checked]="projet.chauffage_central" name="chauffage_central"
+                                    #chauffage_central="ngModel" [(ngModel)]="projet.chauffage_central" type="checkbox"
+                                    class="form-control checkb">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+                            <label class="col-sm-2 col-form-label">Climatiseur préinstallé</label>
+                            <div class="col-sm-4">
+                                <input name="climatiseur_preinstalle" #climatiseur_preinstalle="ngModel"
+                                    [checked]="projet.climatiseur_preinstalle"
+                                    [(ngModel)]="projet.climatiseur_preinstalle" type="checkbox"
+                                    class="form-control checkb">
+                            </div>
+
+                            <label class="col-sm-2 col-form-label">Vidéophone</label>
+                            <div class="col-sm-4">
+                                <input [checked]="projet.videophone" name="videophone" #videophone="ngModel"
+                                    [(ngModel)]="projet.videophone" type="checkbox" class="form-control checkb">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+                            <label class="col-sm-2 col-form-label">Etat</label>
+
+                            <div class="col-sm-4">
+                                <select required name="etat" #etat="ngModel" required [(ngModel)]="projet.etat"
+                                    class="form-control">
+                                    <option value="en_cours">En cours</option>
+                                    <option value="fini">Finis</option>
+                                </select>
+                                <div class="alert alert-danger" *ngIf="f.submitted && etat.invalid">
+                                    <span *ngIf="etat.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--------------------------------------------------- photo de couverture ------------------------------------------------------>
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Photo de couverture</label>
+                    <div class="col-sm-10">
+
+                        <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="projet.image_de_couverture"
+                            type="file" (change)="selectFileimg1($event)" name="uploadFileimg1" id="upload-photo"
+                            class="upload-box">
+
+                        <label class="uploadfilecontainer" for="upload-photo"></label>
+
+                    </div>
+                </div>
+
+
+
+                <label class="col-sm-2 col-form-label"></label>
+
+
+                <img class="files-lists img-responsives" onerror="this.src='assets/images/done.png'"
+                    *ngIf="projet.image_de_couverture" [src]="projet.image_de_couverture"
+                    style="width:137px;height:auto;border-radius:4px;">
+
+
+
+
+                <!--------------------------------------------------- Situation ------------------------------------------------------>
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Situation</label>
+                    <div class="col-sm-10">
+
+                        <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="projet.situation" type="file"
+                            (change)="selectFileimg2($event)" name="uploadFileimg2" id="upload-photos"
+                            class="upload-box">
+
+                        <label class="uploadfilecontainer" for="upload-photos"></label>
+                    </div>
+
+                </div>
+
+                <label class="col-sm-2 col-form-label"></label>
+
+                <img class="files-lists img-responsives" onerror="this.src='assets/images/done.png'"
+                    *ngIf="projet.situation" [src]="projet.situation"
+                    style="width: 137px;height: auto;border-radius: 4px;">
+
+
+
+
+
+                <!--------------------------------------------------- photo Exterieur ------------------------------------------------------>
+
+
+
+                <div class="form-group row">
+
+                    <label class="col-sm-2 col-form-label">Photos Exterieur</label>
+                    <div class="col-sm-10">
+
+
+                        <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop
+                            (onFileDropped)="uploadImageExt($event)">
+                            <input multiple hidden type="file" #fileInput
+                                (change)="uploadImageExt($event.target.files)">
+                        </div>
+
+
+                        <div class="files-list" *ngFor="let file of files">
+                            <p>{{ file }}</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group row">
+
+
+                    <div *ngFor="let projet of projet.images_exterieur; let i=index">
+                        <img class="files-list img-responsive" src="{{projet}}"
+                            onerror="this.src='assets/images/done.png'" />
+                        <a style="cursor: pointer;position: absolute;margin-top: -37px;margin-left: 114px;" (click)="deletephoto1(i)"> <img class="imgdelete"
+                                src="assets/images/RecycleBinFull.png">
+                        </a>
+                    </div>
+                </div>
+
+
+                <!--------------------------------------------------- photo Inferieur ------------------------------------------------------>
+
+
+
+                <div class="form-group row">
+
+                    <label class="col-sm-2 col-form-label">Photos Inferieur</label>
+                    <div class="col-sm-10">
+
+
+                        <div class="uploadfilecontainers" (click)="fileInputs.click()" appDragDrop
+                            (onFileDropped)="uploadImageInt($event)">
+                            <input multiple hidden type="file" #fileInputs
+                                (change)="uploadImageInt($event.target.files)">
+                        </div>
+
+
+                        <div class="files-list" *ngFor="let filee of files2">
+                            <p>{{ filee }}</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group row">
+
+                    <div *ngFor="let projet of projet.images_interieur; let i=index">
+                        <img class="files-list img-responsive" src="{{projet}}"
+                            onerror="this.src='assets/images/done.png'" />
+                        <a style="cursor: pointer;position: absolute;margin-top: -37px;margin-left: 114px;" (click)="deletephoto2(i)"> 
+                            <img class="imgdelete"src="assets/images/RecycleBinFull.png">
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+                <div class="center">
+                    <button class="btn btn-primary">Modifier</button>
+                </div>
+            </form>
+
+
+        </app-card>
+
+    </div>
+</div>

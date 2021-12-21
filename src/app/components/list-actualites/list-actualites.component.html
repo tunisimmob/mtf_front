@@ -1,0 +1,65 @@
+<div class="col-md-12">
+    <div class="card">
+
+        <div class="h-tab">
+
+
+
+
+
+            <div class="tab-content">
+
+                <div class="card-body titre">
+                    <h5>Tous les actualités</h5>
+                </div>
+
+                <div class="card-body reset-table p-t-0 tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th>Photo</th>
+                                    <th>Titre</th>
+                                    <th>Description</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let actualite of actualite | async ">
+                                <tr>
+                                    <td>
+                                        <a><img class="img-responsive" src="{{ actualite.image }}" /></a>
+                                    </td>
+                                    <td>{{ actualite.titre }}</td>
+                                    <td> <textarea readonly cols="45" rows="4">{{ actualite.description }}</textarea></td>
+                                    <td>{{ actualite.cree_le | date: 'dd/MM/yyyy HH:mm' }}</td>
+
+                                    <td>
+                                       
+
+
+                                        <button (click)="actualiteDelete(actualite.id)" type="button"
+                                            class="btn btn-danger btn-round btn-outline-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

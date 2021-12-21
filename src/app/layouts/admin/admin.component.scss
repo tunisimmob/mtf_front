@@ -1,0 +1,38 @@
+aside.pcoded-slider.ng-sidebar {
+  top: 56px;
+}
+
+.slimscroll-wrapper,
+.scroll-window {
+  width: 100% !important;
+}
+
+.userlist-box {
+  &.show {
+    display: -webkit-box;
+  }
+  &.hide {
+    display: none;
+  }
+}
+
+.logoad {
+  max-width: 76%;
+  height: auto;
+}
+
+@media screen and (max-width: 480px) {
+  .logoad {
+    max-width: 15%;
+    height: auto;
+    margin-top: -13px;
+  }
+}
+
+@media screen and (min-width: 1281px) {
+  .logoad {
+    max-width: 21%;
+    height: auto;
+  }
+}
+

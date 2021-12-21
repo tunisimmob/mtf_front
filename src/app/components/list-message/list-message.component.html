@@ -1,0 +1,42 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <h5>Tous les messages</h5>
+        </div>
+        <div class="card-body reset-table p-t-0">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Email</th>
+                            <th>Telephone</th>
+                            <th>Sujet</th>
+                            <th> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Message</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let message of message | async | paginate: { itemsPerPage: 5, currentPage: p }">
+                        <tr>
+                            <td>{{message.nom}}</td>
+                            <td>{{message.prenom}}</td>
+                            <td>{{message.email}}</td>
+                            <td>{{message.tel}}</td>
+                            <td>{{message.sujet}}</td>
+                            <td> <textarea readonly cols="45" rows="4">{{message.message}}</textarea></td>
+                            <td>
+                                <button type="button"
+                                    class="btn btn-danger btn-round btn-outline-danger" (click)="messageDelete(message.id)">Supprimer</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls style="text-align: center;" (pageChange)="p = $event"></pagination-controls>
+
+            </div>
+        </div>
+    </div>
+</div>

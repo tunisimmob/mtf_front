@@ -1,0 +1,88 @@
+<div class="col-md-12">
+    <div class="card">
+
+        <div class="h-tab">
+
+
+
+
+
+            <div class="tab-content">
+
+                <div class="card-body titre">
+                    <h5>Tous les appartements</h5>
+                </div>
+
+                <div class="card-body reset-table p-t-0 tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <!-- <th>Photo</th> -->
+                                    <th>Nombre d'appartement</th>
+                                    <th>Type</th>
+                                    <th>Etage</th>
+                                    <th>Surface Totale</th>
+                                    <th>Projet</th>
+                                    <th>Plan</th>
+                                    <th>Emplacement</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody
+                                *ngFor="let appartement of appartement | async  | paginate: { itemsPerPage: 10, currentPage: p }">
+                                <tr>
+                                    <!-- <td>
+                                        <a><img class="img-responsive" src="{{ appartement.images[0] }}" /></a>
+                                    </td> -->
+                                    <td>{{ appartement.numerodappartement }}</td>
+                                    <td *ngIf="appartement.nombrechambre == '0'">S+0</td>
+                                    <td *ngIf="appartement.nombrechambre == '1'">S+1</td>
+                                    <td *ngIf="appartement.nombrechambre == '2'">S+2</td>
+                                    <td *ngIf="appartement.nombrechambre == '3'">S+3</td>
+                                    <td *ngIf="appartement.nombrechambre == '4'">Commerce</td>
+                                    <td *ngIf="appartement.nombrechambre == '5'">Administration/Bureau</td>
+                                    <td>{{ appartement.nombloc }}</td>
+                                    <td>{{ appartement.surfacetotale }}</td>
+                                    <td>{{ appartement.projet.nom }}</td>
+                                    <td>
+                                        <a><img class="img-responsive" src="{{ appartement.plan }}" /></a>
+                                    </td>
+                                    <td>
+                                        <a><img class="img-responsive" src="{{ appartement.emplacement }}" /></a>
+                                    </td>
+                                    <td>
+                                        <button (click)="appartementUpdate(appartement.id)" type="button"
+                                            class="btn btn-primary btn-round btn-outline-primary">
+                                            Modifier
+                                        </button>
+
+                                        &nbsp; &nbsp;
+
+                                        <button (click)="appartementDelete(appartement.id)" type="button"
+                                            class="btn btn-danger btn-round btn-outline-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

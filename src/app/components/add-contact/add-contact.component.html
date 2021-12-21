@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card>
+
+            <h4 class="sub-title">Ajouter contact</h4>
+
+            <form name="form" novalidate #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Adresse</label>
+                            <div class="col-sm-4">
+                                <textarea name="adresse" #adresse="ngModel" required [(ngModel)]="contact.adresse"
+                                    type="text" class="form-control"> </textarea>
+
+                                <div class="alert alert-danger" *ngIf="f.submitted && adresse.invalid">
+                                    <span *ngIf="adresse.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+
+                            <label class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-4">
+                                <input name="email" email #email="ngModel" required [(ngModel)]="contact.email" type="text"
+                                    class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && email.invalid">
+                                    <span *ngIf="email.errors.required">required</span>
+                                    <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Numero1</label>
+                            <div class="col-sm-4">
+                                <input required name="numero1" #numero1="ngModel" [(ngModel)]="contact.numero1"
+                                    type="number" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && numero1.invalid">
+                                    <span *ngIf="numero1.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+                            <label class="col-sm-2 col-form-label">Numero2</label>
+                            <div class="col-sm-4">
+                                <input required name="numero2" #numero2="ngModel" [(ngModel)]="contact.numero2"
+                                    type="number" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && numero2.invalid">
+                                    <span *ngIf="numero2.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+                            <label class="col-sm-2 col-form-label">Numero3</label>
+                            <div class="col-sm-4">
+                                <input required name="numero3" #numero3="ngModel" [(ngModel)]="contact.numero3"
+                                    type="number" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && numero3.invalid">
+                                    <span *ngIf="numero3.errors.required">required</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+                <div class="center">
+                    <button class="btn btn-primary topp">Ajouter</button>
+                </div>
+            </form>
+
+
+        </app-card>
+
+    </div>
+</div>

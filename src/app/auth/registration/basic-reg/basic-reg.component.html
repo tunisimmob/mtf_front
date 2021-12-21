@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="col-sm-4 erra">
+    <app-card>
+
+
+
+
+
+
+
+
+      <form [formGroup]="registerform" #savestudent (ngSubmit)="saveRegister(saveRegister)" class="md-float-material">
+
+
+
+
+        <div class="auth-box">
+          <div class="row m-b-20">
+            <div class="col-md-12">
+              <h3 class="text-center txt-primary">Ajouter un utilisateur</h3>
+            </div>
+          </div>
+          <hr />
+
+          <!-------------------------------------------- Username -------------------------------------------->
+
+
+          <div class="input-group">
+            <input formControlName="register_username" type="text" class="form-control" placeholder="Username">
+          </div>
+
+
+          <div class="alert alert-danger" *ngIf="(RegisterUsername.touched) && (RegisterUsername.invalid)">
+            <span *ngIf="RegisterUsername.errors.required">Saisir un username !</span>
+          </div>
+
+
+          <!-------------------------------------------- Email -------------------------------------------->
+
+
+          <div class="input-group">
+            <input required formControlName="register_email" type="email" class="form-control" placeholder="Email">
+          </div>
+
+
+          <div class="alert alert-danger" *ngIf="(RegisterEmail.touched) && (RegisterEmail.invalid)">
+            <span *ngIf="RegisterEmail.errors.required">Saisir un email !</span>
+            <div *ngIf="RegisterEmail.errors.email"> L'Email doit être une adresse valide</div>
+          </div>
+
+
+          <!-------------------------------------------- Password -------------------------------------------->
+
+
+          <div class="input-group">
+            <input formControlName="register_password" type="password" class="form-control" placeholder="Mot de passe">
+          </div>
+
+
+          <div class="alert alert-danger" *ngIf="(RegisterPassword.touched) && (RegisterPassword.invalid)">
+            <span *ngIf="RegisterPassword.errors.required">Saisir un mot de passe !</span>
+            <span *ngIf="RegisterPassword.errors.minlength">Le mot de passe doit être au moins de 6
+              caractères</span>
+          </div>
+
+
+          <!-------------------------------------------- Confirm Password -------------------------------------------->
+
+
+          <div class="input-group">
+            <input formControlName="register_confirmpassword" type="password" class="form-control"
+              placeholder="Confirmation mot de passe">
+          </div>
+
+
+          <div class="alert alert-danger"
+            *ngIf="(RegisterPasswordConfirm.touched) && (RegisterPasswordConfirm.invalid)">
+            <span *ngIf="RegisterPasswordConfirm.errors.required">Confirmer votre mot de passe !</span>
+            <span *ngIf="RegisterPasswordConfirm.errors.mustMatch">Les mots de passe doivent correspondre</span>
+          </div>
+
+
+
+
+      
+
+
+          <div class="row m-t-30">
+            <div class="col-md-12">
+              <button [disabled]="registerform.invalid" type="submit"
+                class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Register</button>
+              <!-- <button [routerLink]="['/auth/login']"
+                    class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Login</button> -->
+
+            </div>
+          </div>
+
+          <hr />
+
+        </div>
+      </form>
+      <!-- end of form -->
+    </app-card>
+
+
+
+  </div>
+</div>
+
+<ng2-toasty [position]="position"></ng2-toasty>

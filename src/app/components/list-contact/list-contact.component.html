@@ -1,0 +1,48 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <h5>Contacts</h5>
+        </div>
+        <div class="card-body reset-table p-t-0">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th>Adresse</th>
+                            <th>Email</th>
+                            <th>Telephone 1</th>
+                            <th>Telephone 2</th>
+                            <th>Telephone 3</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let contact of contact | async | paginate: { itemsPerPage: 5, currentPage: p }">
+                        <tr>
+                            <td>{{contact.adresse}}</td>
+                            <td>{{contact.email}}</td>
+                            <td>{{contact.numero1}}</td>
+                            <td>{{contact.numero2}}</td>
+                            <td>{{contact.numero3}}</td>
+                            <td>
+
+                                <button (click)="contactUpdate(contact.id)" type="button"
+                                    class="btn btn-primary btn-round btn-outline-primary">
+                                    Modifier
+                                </button>
+
+                                &nbsp; &nbsp;
+
+                                <button (click)="contactDelete(contact.id)" type="button"
+                                    class="btn btn-danger btn-round btn-outline-danger">Supprimer</button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls style="text-align: center;" (pageChange)="p = $event"></pagination-controls>
+
+            </div>
+        </div>
+    </div>
+</div>

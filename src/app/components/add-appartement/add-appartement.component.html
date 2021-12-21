@@ -1,0 +1,261 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card>
+
+            <h4 class="sub-title">Ajouter un appartement</h4>
+
+            <form name="form" novalidate #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Nombre d'appartement</label>
+                            <div class="col-sm-4">
+                                <input name="numerodappartement" #numerodappartement="ngModel" required
+                                    [(ngModel)]="appartement.numerodappartement" type="number" class="form-control">
+
+                                <div class="alert alert-danger" *ngIf="f.submitted && numerodappartement.invalid">
+                                    <span *ngIf="numerodappartement.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+                            <label class="col-sm-2 col-form-label">Nom bloc</label>
+                            <div class="col-sm-4">
+                                <input required name="nombloc" #nombloc="ngModel" [(ngModel)]="appartement.nombloc"
+                                    type="text" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && nombloc.invalid">
+                                    <span *ngIf="nombloc.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+
+
+
+
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Type</label>
+
+
+
+                            <div class="col-sm-4">
+                                <select name="nombrechambre" #nombrechambre="ngModel" required
+                                    [(ngModel)]="appartement.nombrechambre" class="form-control">
+                                    <option [value]="0">S+0</option>
+                                    <option [value]="1">S+1</option>
+                                    <option [value]="2">S+2</option>
+                                    <option [value]="3">S+3</option>
+                                    <option [value]="4">Commerce</option>
+                                    <option [value]="5">Administration/Bureau</option>
+                                    <!-- <option [value]="5">Espace commercial</option> -->
+                                </select>
+                                <div class="alert alert-danger" *ngIf="f.submitted && nombrechambre.invalid">
+                                    <span *ngIf="nombrechambre.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+                            <label class="col-sm-2 col-form-label">Etage</label>
+                            <div class="col-sm-4">
+                                <input required name="etage" #etage="ngModel" [(ngModel)]="appartement.etage"
+                                    type="text" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && etage.invalid">
+                                    <span *ngIf="etage.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Surface Totale (m²)</label>
+                            <div class="col-sm-4">
+                                <input required name="surfacetotale" #surfacetotale="ngModel"
+                                    [(ngModel)]="appartement.surfacetotale" type="number" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && surfacetotale.invalid">
+                                    <span *ngIf="surfacetotale.errors.required">required</span>
+                                </div>
+                            </div>
+
+
+                            <label class="col-sm-2 col-form-label">Terrasse (m²)</label>
+                            <div class="col-sm-4">
+                                <input name="terrasse" #surfacecommune="ngModel" [(ngModel)]="appartement.terrasse"
+                                    type="number" class="form-control">
+                                <!-- <div class="alert alert-danger" *ngIf="f.submitted && surfacecommune.invalid">
+                                    <span *ngIf="surfacecommune.errors.required">required</span>
+                                </div> -->
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+                            <label class="col-sm-2 col-form-label">Surface Hors Oeuvre (m²)</label>
+                            <div class="col-sm-4">
+                                <input name="surfacehorsoeuvre" #surfacehorsoeuvre="ngModel"
+                                    [(ngModel)]="appartement.surfacehorsoeuvre" type="number" class="form-control">
+                                <!-- <div class="alert alert-danger" *ngIf="f.submitted && surfacehorsoeuvre.invalid">
+                                    <span *ngIf="surfacehorsoeuvre.errors.required">required</span>
+                                </div> -->
+                            </div>
+
+
+                            <label class="col-sm-2 col-form-label">Surface Commune (m²)</label>
+                            <div class="col-sm-4">
+                                <input name="surfacecommune" #surfacecommune="ngModel"
+                                    [(ngModel)]="appartement.surfacecommune" type="number" class="form-control">
+                                <!-- <div class="alert alert-danger" *ngIf="f.submitted && surfacecommune.invalid">
+                                    <span *ngIf="surfacecommune.errors.required">required</span>
+                                </div> -->
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Project</label>
+
+                            <div class="col-sm-4">
+                                <select name="projet" #projet="ngModel" [(ngModel)]="appartement.projet"
+                                    class="form-control">
+                                    <option *ngFor="let projets of projets | async" [ngValue]="projets">
+                                        {{projets['nom']}}
+                                    </option>
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--------------------------------------------------- photo ------------------------------------------------------>
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Plan</label>
+                    <div class="col-sm-10">
+
+                        <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="appartement.plan" type="file"
+                            (change)="selectFileimg1($event)" name="uploadFileimg1" id="upload-photo"
+                            class="upload-box">
+
+
+                        <label class="uploadfilecontainer" for="upload-photo"></label>
+
+                    </div>
+                    <img class="files-lists img-responsive" onerror="this.src='assets/images/done.png'"
+                        *ngIf="appartement.plan" [src]="appartement.plan"
+                        style=" width: 100px; height: auto;margin-left: 25em;">
+                </div>
+
+
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Emplacement</label>
+                    <div class="col-sm-10">
+
+                        <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="appartement.emplacement" type="file"
+                            (change)="selectFileimg2($event)" name="uploadFileimg2" id="upload-photos"
+                            class="upload-box">
+                        <label class="uploadfilecontainer" for="upload-photos"></label>
+                    </div>
+
+                    <img class="files-lists" onerror="this.src='assets/images/done.png'" *ngIf="appartement.emplacement"
+                        [src]="appartement.emplacement" style=" width: 100px; height: auto;margin-left: 25em;">
+                </div>
+
+
+
+                <!-- <div class="form-group row">
+
+                    <label class="col-sm-2 col-form-label">Photos Appartement</label>
+
+
+                    <div class="uploadfilecontainer" (click)="fileInput.click()" appDragDrop
+                        (onFileDropped)="uploadFile($event)">
+                        <input multiple hidden type="file" #fileInput (change)="uploadFile($event.target.files)">
+                    </div>
+
+
+                    <div class="files-list" *ngFor="let file of files;let i=index">
+                        <p>{{ file }}</p>
+                    </div>
+
+                </div> -->
+
+
+
+
+
+
+
+
+                <div class="center">
+                    <button class="btn btn-primary">Ajouter</button>
+                </div>
+            </form>
+
+
+        </app-card>
+
+    </div>
+</div>

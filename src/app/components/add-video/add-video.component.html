@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card>
+
+            <h4 class="sub-title">Ajouter une video</h4>
+
+            <form name="form" novalidate #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Titre</label>
+                            <div class="col-sm-4">
+                                <input name="titre" #titre="ngModel" required [(ngModel)]="video.titre" type="text"
+                                    class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && titre.invalid">
+                                    <span *ngIf="titre.errors.required">required</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row">
+
+
+                    <label class="col-sm-2 col-form-label">Projet</label>
+
+                    <div class="col-sm-4">
+                        <select name="projet" #projet="ngModel" [(ngModel)]="video.projet" class="form-control">
+                            <option *ngFor="let projets of projets | async" [ngValue]="projets">{{projets['nom']}}
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+                <!--------------------------------------------------- photo ------------------------------------------------------>
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Video</label>
+                    <div class="col-sm-10">
+
+                        <input type="file" (change)="selectFileimg1($event)" name="uploadFileimg1" id="upload-photo"
+                            class="upload-box">
+
+     
+
+
+                
+
+                        <label class="uploadimg" for="upload-photo">Upload Video</label>
+
+
+                        <img class="files-lists img-responsive" onerror="this.src='assets/images/dones.png'"
+                        *ngIf="video.video" [src]="video.video"
+                        style=" width: 200px; height: auto;">
+                        
+            
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="center">
+                    <button class="btn btn-primary topp">Ajouter</button>
+                </div>
+            </form>
+
+
+        </app-card>
+
+    </div>
+</div>
+

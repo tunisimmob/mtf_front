@@ -1,0 +1,70 @@
+<div class="col-md-12">
+    <div class="card">
+
+        <div class="h-tab">
+
+
+
+
+
+            <div class="tab-content">
+
+                <div class="card-body titre">
+                    <h5>Liste des videos</h5>
+                </div>
+
+                <div class="card-body reset-table p-t-0 tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th>Titre</th>
+                                    <th>Projet</th>
+                                    <th>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Video</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let video of video | async ">
+                                <tr>
+                                    <td>{{ video.titre }}</td>
+                                    <td>{{ video.projet.nom }}</td>
+                                    <td>
+                                        <video controls width="250">
+                                            <source src="{{ video.video }}" type="video/mp4">
+                                            Sorry, your browser doesn't support embedded videos.
+                                        </video>
+                                    </td>
+                                    <td>
+                                        <button (click)="videoUpdate(video.id)" type="button"
+                                            class="btn btn-primary btn-round btn-outline-primary">
+                                            Modifier
+                                        </button>
+
+                                        &nbsp; &nbsp; &nbsp;
+
+                                        <button type="button" class="btn btn-danger btn-round btn-outline-danger"
+                                            (click)="videoDelete(video.id)">Supprimer</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

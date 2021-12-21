@@ -1,0 +1,159 @@
+<div class="row er">
+  <div class="col-sm-12 cen">
+    <app-card>
+
+      <!-- <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="img-circle profile-avatar"
+            alt="User avatar"> -->
+
+      <!-- <input [(ngModel)]="users.logo" type="file" class="form-control" (change)="selectFile($event)" name="upload"
+            id="upload" class="upload-box" placeholder="Upload File" /> -->
+      <!-- </div>
+
+      </div> -->
+
+
+
+      <h4 class="sub-title">DÉTAILS DE L'UTILISATEUR</h4>
+
+      <form (ngSubmit)="updateUser()">
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input readonly value="{{currentUser.email}}" type="email" class="form-control" placeholder="Email">
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12 mobile-inputs">
+            <div class="form-group row">
+
+              <label class="col-sm-2 col-form-label">Nom</label>
+              <div class="col-sm-4">
+                <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="usern.nom" type="text" class="form-control"
+                  placeholder="Nom">
+              </div>
+
+              <label class="col-sm-2 col-form-label">Prénom</label>
+              <div class="col-sm-4">
+                <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="usern.prenom" type="text"
+                  class="form-control" placeholder="Prénom">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="row">
+          <div class="col-sm-12 mobile-inputs">
+            <div class="form-group row">
+
+              <label class="col-sm-2 col-form-label">Telephone</label>
+              <div class="col-sm-4">
+                <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="usern.tel" type="text" class="form-control"
+                  placeholder="Telephone">
+              </div>
+
+              <label class="col-sm-2 col-form-label">Fax</label>
+              <div class="col-sm-4">
+                <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="usern.fax" type="text" class="form-control"
+                  placeholder="Fax">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12 mobile-inputs">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Ville</label>
+              <div class="col-sm-4">
+                <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="usern.ville" type="text"
+                  class="form-control" placeholder="Ville">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12 mobile-inputs">
+            <div class="form-group row">
+
+
+              <label class="col-sm-2 col-form-label">Adresse</label>
+              <div class="col-sm-10">
+                <textarea [ngModelOptions]="{ standalone: true }" [(ngModel)]="usern.adresse" rows="5" cols="5"
+                  class="form-control" placeholder="Adresse"></textarea>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+        <div class="center">
+          <button type="submit" class="btn btn-primary">Modifier</button>
+        </div>
+      </form>
+
+
+      <h4 class="sub-title">Changer mot de passe</h4>
+
+      <form [formGroup]="changepass" (ngSubmit)="changerpassword()">
+
+
+        <!-- <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-4">
+            <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="changpass.email" type="email" class="form-control" placeholder="Email">
+          </div>
+        </div> -->
+
+
+        <div class="row">
+          <div class="col-sm-12 mobile-inputs">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Password</label>
+              <div class="col-sm-4">
+                <input formControlName="password" required type="password" type="password" class="form-control"
+                  placeholder="Password">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-12 mobile-inputs">
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Confirm Password</label>
+              <div class="col-sm-4">
+                <input formControlName="confirmPassword" required type="password" class="form-control"
+                  placeholder="Confirm Password">
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="centers">
+          <button [disabled]="!changepass.valid" type="submit" class="btn btn-primary">Change password</button>
+        </div>
+      </form>
+    </app-card>
+
+  </div>
+</div>
+
+<ng2-toasty [position]="position"></ng2-toasty>

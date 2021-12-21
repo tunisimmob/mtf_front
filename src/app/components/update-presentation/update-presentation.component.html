@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-card>
+
+            <h4 class="sub-title">Qui Somme Nous</h4>
+
+            <form name="form" novalidate #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Titre</label>
+                            <div class="col-sm-4">
+                                <input name="titre" #titre="ngModel" required [(ngModel)]="presentation.titre" type="text"
+                                    [(ngModel)]="presentation.titre" type="text" class="form-control">
+                                <div class="alert alert-danger" *ngIf="f.submitted && titre.invalid">
+                                    <span *ngIf="titre.errors.required">required</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-sm-12 mobile-inputs">
+                        <div class="form-group row">
+
+
+                            <label class="col-sm-2 col-form-label">Description</label>
+                            <div class="col-sm-10">
+                                <textarea name="description" #description="ngModel" required
+                                    [(ngModel)]="presentation.description" rows="5" cols="5" class="form-control"
+                                    placeholder="Description"></textarea>
+                                <div class="alert alert-danger" *ngIf="f.submitted && description.invalid">
+                                    <span *ngIf="description.errors.required">required</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <!--------------------------------------------------- photo ------------------------------------------------------>
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Image 1</label>
+                    <div class="col-sm-10">
+
+                        <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="presentation.image1" type="file"
+                            (change)="selectFileimg1($event)" name="uploadFileimg1" id="upload-photo"
+                            class="upload-box">
+
+                        <img class="files-lists img-responsive" onerror="this.src='assets/images/done.png'"
+                            *ngIf="presentation.image1" [src]="presentation.image1"
+                            style=" width: 200px; height: auto;">
+                        <label class="uploadimg" for="upload-photo">Upload</label>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Image 2</label>
+                    <div class="col-sm-10">
+
+                        <input [ngModelOptions]="{ standalone: true }" [(ngModel)]="presentation.image2" type="file"
+                            (change)="selectFileimg2($event)" name="uploadFileimg2" id="upload-photos"
+                            class="upload-box">
+
+                        <img class="files-lists img-responsive" onerror="this.src='assets/images/done.png'"
+                            *ngIf="presentation.image2" [src]="presentation.image2"
+                            style=" width: 200px; height: auto;">
+                        <label class="uploadimg" for="upload-photos">Upload</label>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="center">
+                    <button class="btn btn-primary topp">Modifier</button>
+                </div>
+            </form>
+
+
+        </app-card>
+
+    </div>
+</div>

@@ -1,0 +1,24 @@
+.profile-avatar {
+  width: 200px;
+  position: relative;
+  margin: 0px auto;
+  margin-top: 35px;
+  border: 4px solid #f3f3f3;
+  margin-bottom: 85px;
+}
+
+.center {
+  text-align: center;
+}
+
+.er {
+  width: 65%;
+}
+
+.cen {
+  margin-left: 25%;
+}
+
+.centers {
+  text-align: center;
+}

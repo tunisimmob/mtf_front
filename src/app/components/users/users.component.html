@@ -1,0 +1,32 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-body">
+            <h5>Liste des Utilisateurs</h5>
+        </div>
+        <div class="card-body reset-table p-t-0">
+            <div class="text-center table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="text-uppercase">
+                            <th>Email</th>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Telephone</th>
+                            <th>Ville</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of user | async  | paginate: { itemsPerPage: 15, currentPage: p }">
+                            <td>{{user.email}}</td>
+                            <td>{{user.nom}}</td>
+                            <td>{{user.prenom}}</td>
+                            <td>{{user.tel}}</td>
+                            <td>{{user.ville}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>

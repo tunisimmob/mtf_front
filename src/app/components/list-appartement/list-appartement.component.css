@@ -1,0 +1,34 @@
+.tab {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .dropdown-item.active,
+  .dropdown-item:active {
+    background-color: #fff;
+    color: #666;
+  }
+  
+  .status {
+    text-align: start;
+    margin-left: 20px;
+  }
+  
+  .titre {
+    margin-bottom: 50px;
+  }
+  
+  .titres {
+    /* width: 50%; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block
+  }
+  
+
+  .img-responsive{
+    width: 80px;
+    border-radius: 10px;
+  }
+  

@@ -1,0 +1,76 @@
+<div class="col-md-12">
+    <div class="card">
+
+        <div class="h-tab">
+
+
+
+
+
+            <div class="tab-content">
+
+                <div class="card-body titre">
+                    <h5>Devenez Propriétaire</h5>
+                </div>
+
+                <div class="card-body reset-table p-t-0 tab">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr class="text-uppercase">
+                                    <th>Titre1</th>
+                                    <th>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Image1</th>
+                                    <th>Titre2</th>
+                                    <th>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Image2</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let devenezprop of devenezprop | async ">
+                                <tr>
+
+                                    <td>{{ devenezprop.titre_1 }}</td>
+                                    <td>
+                                        <a><img class="img-responsive" src="{{ devenezprop.image1 }}" /></a>
+                                    </td>
+                                    <td>{{ devenezprop.titre_2 }}</td>
+                                    <td>
+                                        <a><img class="img-responsive" src="{{ devenezprop.image2 }}" /></a>
+                                    </td>
+
+
+
+
+                                    <td>
+                                        <button (click)="devenezpropUpdate(devenezprop.id)" type="button"
+                                            class="btn btn-primary btn-round btn-outline-primary">
+                                            Modifier
+                                        </button>
+
+                                        &nbsp; &nbsp;
+
+                                        <button (click)="devenezpropDelete(devenezprop.id)" type="button"
+                                            class="btn btn-danger btn-round btn-outline-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+
+    </div>
+</div>

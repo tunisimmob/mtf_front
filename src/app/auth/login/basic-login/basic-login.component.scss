@@ -1,0 +1,31 @@
+.imglogo {
+    width: 120px;
+    margin-top: -55px;
+    border-radius: 2px;
+}
+
+button {
+    background-color: #0e568b;
+    border-color: #0e568b;
+}
+
+button:hover {
+    background-color: #0b3676;
+    border-color: #0b3676;
+}
+
+button:disabled {
+    background-color: #0e568b;
+    border-color: #0e568b;
+}
+
+button:focus {
+    background-color: #0e568b;
+    border-color: #0e568b;
+}
+
+.bg-primary {
+    background-color: #0e568b !important;
+    color: #fff;
+}
+
