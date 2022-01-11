@@ -39,7 +39,7 @@ export class UpdateVideoComponent implements OnInit {
   photourll: string;
   projets: Observable<Projet[]>;
   projet: Projet = new Projet();
-  
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -70,7 +70,7 @@ export class UpdateVideoComponent implements OnInit {
 
     this.photourl = localStorage.getItem('video')
     this.video.video = this.photourl;
-    
+
     this.DataService.updateVideo(this.video).subscribe(
       (data) => {
         console.log(data);
@@ -106,8 +106,8 @@ export class UpdateVideoComponent implements OnInit {
   async uploadFileimg1(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
       region: "eu-west-3",
     });
     const params = {

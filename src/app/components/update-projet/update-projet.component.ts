@@ -182,8 +182,8 @@ export class UpdateProjetComponent implements OnInit {
       const element = event[index];
       const contentType = event[index].type;
       const bucket = new S3({
-        accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-        secretAccessKey: "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",
+        accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+        secretAccessKey: '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',
         region: "eu-west-3",
       });
       const params = {
@@ -216,7 +216,7 @@ export class UpdateProjetComponent implements OnInit {
               clearInterval(timerInterval)
             }
           })
-  
+
       }).send(function (err, data) {
         if (err) {
           console.log('There was an error uploading your file: ', err);
@@ -247,8 +247,8 @@ export class UpdateProjetComponent implements OnInit {
       const element = events[index];
       const contentType = events[index].type;
       const bucket = new S3({
-        accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-        secretAccessKey: "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",
+        accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+        secretAccessKey: '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',
         region: "eu-west-3",
       });
       const params = {
@@ -281,7 +281,7 @@ export class UpdateProjetComponent implements OnInit {
               clearInterval(timerInterval)
             }
           })
-  
+
       }).send(function (err, data) {
         if (err) {
           console.log('There was an error uploading your file: ', err);
@@ -304,7 +304,7 @@ export class UpdateProjetComponent implements OnInit {
     }
     console.log(this.projet.images_interieur)
 
-    
+
   }
 
 
@@ -321,8 +321,8 @@ export class UpdateProjetComponent implements OnInit {
   uploadFileimg1(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
       region: "eu-west-3",
     });
     const params = {
@@ -391,8 +391,8 @@ export class UpdateProjetComponent implements OnInit {
   uploadFileimg2(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
       region: "eu-west-3",
     });
     const params = {

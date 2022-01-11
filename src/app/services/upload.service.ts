@@ -17,8 +17,8 @@ export class UploadService {
     const contentType = file.type;
     const bucket = new S3(
       {
-        accessKeyId: 'AKIAXVWFAUBHFUM7UQ24',
-        secretAccessKey: '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',
+        accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+        secretAccessKey: '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',
         region: 'eu-west-3'
       }
     );
@@ -37,7 +37,7 @@ export class UploadService {
       console.log('Successfully uploaded file.', data);
       return true;
     });
-    //for upload progress   
+    //for upload progress
     /*bucket.upload(params).on('httpUploadProgress', function (evt) {
               console.log(evt.loaded + ' of ' + evt.total + ' Bytes');
           }).send(function (err, data) {

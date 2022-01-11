@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from "src/app/services/data.service";
-import { Router } from "@angular/router";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { ToastData, ToastOptions, ToastyService } from "ng2-toasty";
-import { UploadService } from "src/app/services/upload.service";
-import * as AWS from "aws-sdk/global";
-import * as S3 from "aws-sdk/clients/s3";
+import { DataService } from 'src/app/services/data.service';
+import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ToastData, ToastOptions, ToastyService } from 'ng2-toasty';
+import { UploadService } from 'src/app/services/upload.service';
+import * as AWS from 'aws-sdk/global';
+import * as S3 from 'aws-sdk/clients/s3';
 import { TokenStorageService } from 'src/app/services/token-storage.service';
 import { Observable } from 'rxjs';
 import { HttpResponse } from 'aws-sdk';
@@ -21,13 +21,13 @@ import { Projet } from 'src/app/interfaces/projet';
 })
 export class AddAppartementComponent implements OnInit {
   currentUser: any;
-  position = "bottom-right";
+  position = 'bottom-right';
   title: string;
   msg: string;
   showClose = true;
   timeout = 2000;
-  theme = "bootstrap";
-  type = "default";
+  theme = 'bootstrap';
+  type = 'default';
   closeOther = false;
   appartement: Appartement = new Appartement();
   submitted = false;
@@ -37,10 +37,10 @@ export class AddAppartementComponent implements OnInit {
   projets: Observable<Projet[]>;
   projet: Projet = new Projet();
   selectedFiles2: FileList;
-  image_url = 'https://tunisie-immob.s3-eu-west-3.amazonaws.com/'
-  image_url1: string
-  image_url2: string
-  photourl: string
+  image_url = 'https://tunisie-immob.s3-eu-west-3.amazonaws.com/';
+  image_url1: string;
+  image_url2: string;
+  photourl: string;
   photourll: string;
   selectedFiles: FileList;
   imageUrls: [];
@@ -64,7 +64,7 @@ export class AddAppartementComponent implements OnInit {
 
   async onSubmit() {
     this.DataService.createAppartement(this.appartement).subscribe(
-      (data) => { console.log(data), this.router.navigate(["list-appartement"]); },
+      (data) => { console.log(data), this.router.navigate(['list-appartement']); },
 
       (error) => console.log(error)
     );
@@ -75,9 +75,9 @@ export class AddAppartementComponent implements OnInit {
 
 
   public getRandomString(length) {
-    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var result = '';
-    for (var i = 0; i < length; i++) {
+    let randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
       result += randomChars.charAt(Math.floor(Math.random() * randomChars.length));
     }
     return result;
@@ -96,25 +96,25 @@ export class AddAppartementComponent implements OnInit {
   uploadFileimg1(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
-      region: "eu-west-3",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
+      region: 'eu-west-3',
     });
     const params = {
-      Bucket: "tunisie-immob",
+      Bucket: 'tunisie-immob',
       Key: this.getRandomString(5) + file.name,
       Body: file,
-      ACL: "public-read",
+      ACL: 'public-read',
       ContentType: contentType,
     };
-    this.getimage = bucket.upload(params, async function (err, data) {
-      console.log(data)
-      return data.location
+    this.getimage = bucket.upload(params, async function(err, data) {
+      console.log(data);
+      return data.location;
     });
-    this.image_url1 = this.getimage.singlePart.params.Key
+    this.image_url1 = this.getimage.singlePart.params.Key;
     this.photourl = this.image_url.concat(this.image_url1);
-    console.log(this.photourl)
-    this.appartement.plan = this.photourl
+    console.log(this.photourl);
+    this.appartement.plan = this.photourl;
   }
 
 
@@ -132,25 +132,25 @@ export class AddAppartementComponent implements OnInit {
   uploadFileimg2(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
-      region: "eu-west-3",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
+      region: 'eu-west-3',
     });
     const params = {
-      Bucket: "tunisie-immob",
+      Bucket: 'tunisie-immob',
       Key: this.getRandomString(5) + file.name,
       Body: file,
-      ACL: "public-read",
+      ACL: 'public-read',
       ContentType: contentType,
     };
-    this.getimage = bucket.upload(params, async function (err, data) {
-      console.log(data)
-      return data.location
+    this.getimage = bucket.upload(params, async function(err, data) {
+      console.log(data);
+      return data.location;
     });
-    this.image_url2 = this.getimage.singlePart.params.Key
+    this.image_url2 = this.getimage.singlePart.params.Key;
     this.photourll = this.image_url.concat(this.image_url2);
-    console.log(this.photourl)
-    this.appartement.emplacement = this.photourll
+    console.log(this.photourl);
+    this.appartement.emplacement = this.photourll;
   }
 
 

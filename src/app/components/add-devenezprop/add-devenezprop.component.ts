@@ -94,8 +94,8 @@ export class AddDevenezpropComponent implements OnInit {
   uploadFileimg1(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
       region: "eu-west-3",
     });
     const params = {
@@ -165,8 +165,8 @@ export class AddDevenezpropComponent implements OnInit {
   uploadFileimg2(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
       region: "eu-west-3",
     });
     const params = {

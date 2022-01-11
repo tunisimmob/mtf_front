@@ -47,7 +47,7 @@ export class ProfileComponent implements OnInit {
 
 
     this.changepass = this.fb.group({
-      
+
       password: ['', [Validators.required,Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
     }, { validator: this.MatchPassword("password", "confirmPassword") })
@@ -141,8 +141,8 @@ export class ProfileComponent implements OnInit {
   uploadFile(file) {
     const contentType = file.type;
     const bucket = new S3({
-      accessKeyId: "AKIAXVWFAUBHFUM7UQ24",
-      secretAccessKey: "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",
+      accessKeyId: 'AKIAXVWFAUBHPVQ7OO5C',
+      secretAccessKey: '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',
       region: "eu-west-3",
     });
     const params = {
